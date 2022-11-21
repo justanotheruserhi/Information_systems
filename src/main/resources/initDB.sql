@@ -1,6 +1,6 @@
 create table user_data (
-	user_id integer (3) not null primary key,
-	username varchar (20) not null unique,
+	user_id integer(3)not null primary key,
+	username varchar(20)not null unique,
 	password varchar (10) not null,
 	birthday date not null
 );
