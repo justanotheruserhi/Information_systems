@@ -9,16 +9,18 @@ public class Main {
     public static void main(String[] args){
         DBConnection conec = new DBConnection();
 
-        String count = "select * from statistics";
+       // String count = "select * from statistics";
 
         try {
             Statement statement = conec.getConnection().createStatement();
-            ResultSet resultset = statement.executeQuery(count);
+           // ResultSet resultset = statement.executeQuery(count);
 
-            while(resultset.next()) {
+          statement.execute("insert into statistics (cnt_habits) values (7);");
+
+            /* while(resultset.next()) {
                 int cnt = resultset.getInt(1);
                 System.out.println(cnt);
-            }
+            } */
         }
         catch (SQLException ex){
             ex.printStackTrace();
