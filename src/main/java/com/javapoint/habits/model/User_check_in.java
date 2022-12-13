@@ -40,6 +40,7 @@ import java.sql.Date;
             this.habit_id = habit_id;
         }
 
+
        // public Timestamp getCheck_date() {return check_date;}
        // public void setCheck_date(Timestamp check_date) { this.check_date = check_date;}
 
