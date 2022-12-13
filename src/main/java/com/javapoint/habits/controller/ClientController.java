@@ -4,6 +4,7 @@ package com.javapoint.habits.controller;
 
 import com.javapoint.habits.model.Client;
 import com.javapoint.habits.service.ClientService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class ClientController {
 
 // здесь должна быть валидация
     @PostMapping(value = "/clients")
-    public ResponseEntity<?> create(@RequestBody Client client) {
+    public ResponseEntity<?> create(@RequestBody @Valid Client client) {
         clientService.create(client);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
@@ -44,7 +45,7 @@ public class ClientController {
     }
 
     @PutMapping(value = "/clients/{id}")
-    public ResponseEntity<?> update(@PathVariable(name = "id") int id, @RequestBody Client client) {
+    public ResponseEntity<?> update(@PathVariable(name = "id") int id, @RequestBody @Valid Client client) {
         final boolean updated = clientService.update(client, id);
 
         return updated

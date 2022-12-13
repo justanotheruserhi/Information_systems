@@ -1,6 +1,8 @@
 package com.javapoint.habits.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(schema = "public", name = "user_data") //у вас свои схемы поэтому название схемы надо изменить, больше я ничего не меняла
@@ -11,11 +13,16 @@ public class Client {
     private Integer user_id;
 
     @Column(name = "username")
+    @NotBlank(message = "Specify your username")
+    @Size(min = 5, max = 25)
     private String name;
     @Column(name = "password")
+    @NotBlank(message = "You must have a password")
+    @Size(min = 8, max = 20)
     private String password;
 
     @Column(name = "birthday")
+    @NotBlank(message = "Enter your date of birth")
     private String birthday;
 
     public Integer getId() {

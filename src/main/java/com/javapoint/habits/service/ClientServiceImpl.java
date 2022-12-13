@@ -16,6 +16,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public void create(Client client) {
+        client.setPassword(passwordEncoder.encode(client.getPassword()));
         repository.save(client);
     }
 
