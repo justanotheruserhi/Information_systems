@@ -2,6 +2,7 @@ package com.javapoint.habits.controller;
 
 
 
+
 import com.javapoint.habits.model.Client;
 import com.javapoint.habits.service.ClientService;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ public class ClientController {
     public ClientController(ClientService clientService) {
         this.clientService = clientService;
     }
-
+    // сделать доп класс, чтобы всё лезло сначала в него, а только потом в сервис
 // здесь должна быть валидация
     @PostMapping(value = "/clients")
     public ResponseEntity<?> create(@RequestBody Client client) {

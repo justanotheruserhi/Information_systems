@@ -1,7 +1,6 @@
 package com.javapoint.habits.model;
 
 import jakarta.persistence.*;
-
 @Entity
 @Table(schema = "public", name = "user_data") //у вас свои схемы поэтому название схемы надо изменить, больше я ничего не меняла
 public class Client {
