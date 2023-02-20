@@ -1,7 +1,6 @@
 package com.javapoint.habits.model;
 
 import jakarta.persistence.*;
-import jdk.jfr.Timestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Date;
@@ -20,8 +19,7 @@ import java.sql.Date;
         private Integer habit_id;
 
         @Column(name = "check_date")
-        @Timestamp("dd/mm/yyyy HH/mm/ss")
-        //private Timestamp check_date;
+        private String check_date;
 
 
         public Integer getIdUs() {
@@ -40,8 +38,8 @@ import java.sql.Date;
             this.habit_id = habit_id;
         }
 
+       public String getCheck_date() {return check_date;}
 
-       // public Timestamp getCheck_date() {return check_date;}
-       // public void setCheck_date(Timestamp check_date) { this.check_date = check_date;}
+       public void setCheck_date(String check_date) { this.check_date = check_date;}
 
     }
