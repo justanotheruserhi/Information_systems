@@ -26,13 +26,13 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public Client read(int id) {
-        return repository.getReferenceById(id);
+        return repository.findById( id ).orElseGet( null );
     }
 
     @Override
     public boolean update(Client client, int id) {
         if (repository.existsById(id)) {
-            client.setId(id);
+            client.setUser_id(id);
             repository.save(client);
             return true;
         }

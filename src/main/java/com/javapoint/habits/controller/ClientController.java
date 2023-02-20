@@ -1,10 +1,8 @@
 package com.javapoint.habits.controller;
 
-
-
-
 import com.javapoint.habits.model.Client;
 import com.javapoint.habits.service.ClientService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,22 +16,21 @@ public class ClientController {
     public ClientController(ClientService clientService) {
         this.clientService = clientService;
     }
-    // сделать доп класс, чтобы всё лезло сначала в него, а только потом в сервис
-// здесь должна быть валидация
+
     @PostMapping(value = "/clients")
-    public ResponseEntity<?> create(@RequestBody Client client) {
+    public ResponseEntity<?> create(@RequestBody @Valid Client client) {
         clientService.create(client);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/clients")
+   /* @GetMapping(value = "/clients")
     public ResponseEntity<List<Client>> read() {
         final List<Client> clients = clientService.readAll();
 
         return clients != null &&  !clients.isEmpty()
                 ? new ResponseEntity<>(clients, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
+    }*/
 
     @GetMapping(value = "/clients/{id}")
     public ResponseEntity<Client> read(@PathVariable(name = "id") int id) {
@@ -45,7 +42,7 @@ public class ClientController {
     }
 
     @PutMapping(value = "/clients/{id}")
-    public ResponseEntity<?> update(@PathVariable(name = "id") int id, @RequestBody Client client) {
+    public ResponseEntity<?> update(@PathVariable(name = "id") int id, @RequestBody @Valid Client client) {
         final boolean updated = clientService.update(client, id);
 
         return updated

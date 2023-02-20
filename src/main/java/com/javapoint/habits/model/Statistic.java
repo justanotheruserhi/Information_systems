@@ -1,7 +1,8 @@
 package com.javapoint.habits.model;
 
+
 import jakarta.persistence.*;
-import org.springframework.format.annotation.DateTimeFormat;
+
 
 import java.sql.Date;
 
@@ -14,42 +15,40 @@ public class Statistic {
     private Integer user_id;
 
     @Column(name = "cnt_habits")
-    private String cnt_habits;
+    private Integer cnt_habits;
 
     @Column(name = "date_end")
-    @DateTimeFormat(pattern = "dd/mm/yyyy")
-    private Date date_end;
+    private String date_end;
 
     @Column(name = "date_start")
-    @DateTimeFormat(pattern = "dd/mm/yyyy")
-    private Date date_start;
+    private String date_start;
 
 
     public Integer getId() {
         return user_id;
     }
 
-    public void setId(Integer user_id) {
+    public void setId_(Integer user_id) {
         this.user_id = user_id;
     }
 
-    public String getHabits() {
+    public Integer getCnt_habits() {
         return cnt_habits;
     }
 
-    public void setHabits(String cnt_habits) {
+    public void setCnt_habits(Integer cnt_habits) {
         this.cnt_habits = cnt_habits;
     }
 
-    public Date getDate_end() {
+    public String getDate_end() {
         return date_end;
     }
 
-    public void setDate_end(Date date_end) {
+    public void setDate_end(String date_end) {
         this.date_end = date_end;
     }
 
-    public Date getDate_start() {return date_start;}
-    public void setDate_start(Date date_start) { this.date_start = date_start;}
+    public String getDate_start() {return date_start;}
+    public void setDate_start( String date_start) { this.date_start = date_start;}
 
 }
