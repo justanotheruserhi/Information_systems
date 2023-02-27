@@ -10,4 +10,8 @@ class HabitsApplicationTests {
 	void contextLoads() {
 	}
 
+	/*@Test
+	public void findByName() {
+		findCacheByName("?");
+	}*/
 }
