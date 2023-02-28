@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class Schedule {
     static int i = 1;
     
-    @Scheduled(cron = "*/5 * * * * ?")
+    @Scheduled(cron = "0 * * * * ?")
     public void runFirst()throws InterruptedException{
         System.out.println("First start: " + ++i);
         Thread.sleep(5000);
